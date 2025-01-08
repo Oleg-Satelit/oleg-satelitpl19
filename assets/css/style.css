@@ -1,0 +1,675 @@
+/* Setting up some custom properties, update these for your own design */
+
+:root {
+  /* toggling menu */
+  interpolate-size: allow-keywords;
+
+  /* font family copied from Google fonts :) */
+  /* --ff-primary: "Source Sans Pro", sans-serif; */
+  /* --ff-secondary: "Source Sans Pro", monospace; */
+  /* Updating font families after updating font links in HTML (comment out old font families above) */
+  --ff-primary: "Bakbak One", cursive;
+  --ff-secondary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+
+  /* font weights */
+  /* --fw-reg: 300; */
+  /* --fw-bold: 900; */
+  /* Updating font weights after updating font links in HTML (comment out old font families above) */
+  --fw-reg: 400;
+  --fw-bold: 700;
+
+  /* colors */
+  --fclr-light: #fff;
+  --clr-light: #fff;
+  --clr-dark: #303030;
+  /* Or you could invert your color scheme from light-dark to dark-light */
+  /* --clr-light: #333; */
+  /* --clr-dark: #fff; */
+  /* --clr-accent: #16e0bd; */
+  /* Updating a color accent and primary color if you don't like that green color */
+  --clr-primary: #0e70b5;
+  --clr-accent: #0a5a93;
+
+  /* font sizes - always in REMs - calculated based on MOCK-UP */
+  --fs-h1: 3rem;
+  --fs-h2: 2.25rem;
+  --fs-h3: 1.25rem;
+  --fs-body: 0.8rem;
+
+  /* box shadow */
+  /* up/down left/right blur rgba*/
+  --bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
+    /* another layer to help to increase the realism of the shadows */ 0.125em
+      0.125em 0.25em rgba(0, 0, 0, 0.15);
+}
+
+/*  generic media query - works well for this design - making fonts bigger for bigger screens */
+@media (min-width: 800px) {
+  :root {
+    /* redefine font sizes - making bigger at large screen sizes - so we don't have to redefine in our actual CSS */
+    --fs-h1: 4.5rem;
+    --fs-h2: 3.75rem;
+    --fs-h3: 1.5rem;
+    --fs-body: 1.125rem;
+    /* switching colors on desktop */
+    /* --clr-light: #333;
+    --clr-dark: #fff;
+    --clr-accent: #16e0bd; */
+  }
+}
+
+/* General styles */
+
+body {
+  color: var(--clr-dark);
+  font-family: var(--ff-primary);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  letter-spacing: .05em
+}
+
+.container {
+  max-width: 1200px;
+  padding-inline: 2em;
+  padding-block: 2em;
+  margin: 0 auto;
+}
+
+section {
+  /* keep things from touching the side of the screen */
+  padding: 5em 0;
+}
+
+/* Making strong tag even stronger/bolder (it doesn't work by some reason) */
+.strong {
+  font-weight: var(--fw-bold);
+}
+
+/* Everything when it has a FOCUS state (hitting a TAB) is going to get an outline on it */
+/* will be applied to our button but it's also gonna apply to other things like links 
+so you can see on which element is the FOCUS state (the TAB is on) */
+:focus {
+  outline: 3px solid var(--clr-accent);
+  outline-offset: 3px;
+}
+
+/* Buttons */
+/* Usually for buttons usually have designs that have more than one button
+but in this case we have only one button to style up */
+
+.btn {
+  display: inline-block;
+  padding: 0.5em 2.5em;
+  background: var(--clr-primary);
+  color: var(--fclr-light);
+  text-decoration: none;
+  /* puts a pointer on the button */
+  cursor: pointer;
+  /* gives uppercase to the text in Button */
+  text-transform: uppercase;
+  /* helps to spread a letters inside a Button */
+  letter-spacing: 2px;
+  font-weight: var(--fw-bold);
+  /* gets a button bigger when you hover over with .btn:hover property bellow */
+  transition: transform 0.2s ease-in-out;
+}
+
+/* gets a button bigger when you hover over with transition property in btn above */
+.btn:hover {
+  transform: scale(1.1);
+}
+
+/* Basic Typography */
+
+h1,
+h2,
+h3 {
+  font-family: var(--ff-primary);
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: var(--fs-h1);
+}
+h2 {
+  font-size: var(--fs-h2);
+}
+h3 {
+  font-size: var(--fs-h3);
+}
+
+p {
+  font-family: var(--ff-secondary);
+}
+
+/* Titles and Subtitles */
+/* Do MARGINS and PADDINGS on the text using EMs measurements - relative to font-size */
+
+.section__title {
+  margin-bottom: 1.25em;
+}
+
+.section__title--intro {
+  font-weight: var(--fw-reg);
+}
+
+.element-divider {
+  display: flex;
+  padding-block: 1em;
+}
+
+.element-divider-separator {
+  width: 50%;
+  margin: 0 auto;
+  border-block-start: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+/* HEADER SECTION */
+
+header {
+  background: var(--clr-primary);
+
+  position: relative;
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  max-width: 200px;
+}
+
+.menu__list {
+  display: none;
+}
+
+.menu__list .menu__item {
+  margin-right: 1.5em;
+}
+.menu__list .menu__item:last-child {
+  margin-right: 0;
+}
+.menu__list .menu__item:last-child .menu__link {
+  color: var(--clr-primary);
+  font-weight: 600;
+
+  text-transform: uppercase;
+  background-color: var(--clr-light);
+
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 0.5em;
+}
+
+.menu__list .menu__item .menu__link {
+  color: var(--fclr-light);
+}
+
+/* setting up the nav bar */
+nav {
+  background: var(--clr-accent);
+  color: var(--clr-light);
+
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 1;
+
+  margin-right: 1.2rem;
+
+  height: 0;
+  overflow: clip;
+  visibility: hidden;
+
+  transition: height 1s ease, visibility 1s;
+}
+
+button[aria-expanded="true"] + nav {
+  height: auto;
+  visibility: visible;
+}
+
+nav {
+  ul {
+    margin: 0;
+    padding: 3rem;
+
+    display: grid;
+    gap: 1rem;
+  }
+
+  a {
+    color: white;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--clr-primary);
+    }
+  }
+}
+
+/* setting up the nav list */
+.nav__list {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0;
+  padding: 2rem;
+}
+
+/* gives a nav text a styling */
+.nav__link {
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h3);
+}
+
+.nav__link:hover {
+  color: var(--clr-primary);
+}
+
+.nav__list .nav__item:last-child {
+  margin-top: 1rem;
+}
+
+.nav__list .nav__item:last-child .nav__link {
+  color: var(--clr-primary);
+  font-weight: 600;
+
+  text-transform: uppercase;
+  background-color: var(--clr-light);
+
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 0.5em;
+}
+
+/* HAMBURGER MENU */
+
+/* button itself */
+.nav-toggle {
+  margin-block: auto;
+  padding: 0.5em;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* ROTATE toggle stripes inside so it turns into an X 
+with .nav-open .hamburger::before {...} and .nav-open .hamburger::after {...} and .nav-open .hamburger {...} */
+.nav-open .hamburger {
+  /* when nav is open then hamburger itself (.hamburger) going to get ... */
+  transform: rotate(0.625turn);
+  /* and it will rotate it around, you can do it in degrees but I want to show that you can do it in turn units */
+}
+
+.nav-open .hamburger::before {
+  /* when nav is open then (.hamburger::before) going to get ... */
+  /* rotated by 90 degree and adjusted/moved back (translateX) by 6px as it was off and ugly by 6px */
+  transform: rotate(90deg) translateX(-6px);
+}
+
+.nav-open .hamburger::after {
+  /* when nav is open then (.hamburger::after) going to get ... */
+  opacity: 0;
+  /* so it's going to disappear and rest would rotate and turn into an X */
+}
+
+/* give 3 stripes inside a button */
+.hamburger {
+  /* give it a display: block because by difault span is inline */
+  display: block;
+  /* give it a position: relative because we're gonna be using a pseudo elements with absolute positioning - it will make our lives much easier */
+  position: relative;
+}
+
+/* give 3 stripes inside a button */
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  background: var(--clr-accent);
+  width: 2em;
+  height: 3px;
+  border-radius: 1em;
+  /* give some animation */
+  transition: transform 250ms ease-in-out;
+}
+
+/* give 3 stripes inside a button */
+.hamburger::before,
+.hamburger::after {
+  /* first think you want to do is give it a content as pseudo elements will not work unless you give them some content */
+  content: "";
+  /* you give them position or give them display property is required */
+  position: absolute;
+  /* that it means that it matches the width with the other one
+    and it's because i have position: relative in .hamburger. if not then it will be relative to whole screen 
+    and huge bar going all the way across */
+  left: 0;
+  right: 0;
+}
+
+/* give 3 stripes inside a button */
+/* the reason it is 6px is because we have height of 3 px, empty space of 3px and then we'll have the rest of hamburger */
+.hamburger::before {
+  top: 6px;
+}
+.hamburger::after {
+  bottom: 6px;
+}
+
+/* HERO SECTION */
+
+.hero {
+  background-image: url(/assets/img/pipes.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  position: relative;
+}
+
+.blue-background-overlay {
+  background-color: #132023;
+  opacity: 0.85;
+  transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hero-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+
+.hero__title {
+  color: var(--fclr-light);
+  text-align: center;
+  width: 100%;
+  margin-right: 0rem;
+}
+
+.hero__info {
+  background-color: transparent;
+  text-align: center;
+  width: 100%;
+  margin-left: 0rem;
+  padding: 2.5em;
+  border-radius: 20px;
+  color: var(--clr-light);
+}
+
+.hero__info .element-divider-separator {
+  border-color: var(--clr-light);
+  opacity: 0.5;
+}
+
+/* OFFER SECTION */
+
+.offer-info-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.text-side {
+  width: 100%;
+  margin-right: 0rem;
+}
+
+.text-side .section__title {
+  color: var(--clr-accent);
+  margin-bottom: 0rem;
+  text-align: center;
+}
+
+.offer-info .element-divider {
+  padding-block: 2em;
+}
+
+.offer-info .element-divider-separator {
+  width: 30%;
+  margin: 0 auto;
+}
+
+.text-side-text {
+  color: #696969;
+  text-align: center;
+}
+
+.text-side p {
+  margin-bottom: 1rem;
+}
+
+.text-side a {
+  width: auto;
+  margin-block: 1rem;
+}
+
+.image-side {
+  width: 100%;
+  margin-top: 1rem;
+  margin-left: 4rem;
+}
+
+.image-side__img-wrapper {
+  position: relative;
+}
+
+.main-image img {
+  border-radius: 15px;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 15px;
+  /* max-height: 570px; */
+  height: 570px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+}
+
+.inset-image {
+  position: absolute;
+  bottom: -10%;
+  left: -10%;
+  width: 40%;
+}
+
+.inset-image img {
+  width: 100%;
+  border-radius: 15px;
+  border: 5px solid white;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+}
+
+/* MY SERVICES SECTION */
+
+.my-services {
+  background-image: url(/assets/img/pipes-2.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  position: relative;
+
+  color: var(--fclr-light);
+  text-align: center;
+}
+
+.my-services-wrapper {
+  position: relative;
+}
+
+.section__title--services {
+  /* color: var(--clr-accent); */
+  /* position: relative; is because we have pseudo element we want to put on it 
+    to create a white line under "What I Do" title */
+  position: relative;
+}
+
+.my-services .section__title {
+  margin-bottom: 0rem;
+}
+
+.my-services .element-divider {
+  padding-block: 2em;
+}
+
+.my-services .element-divider-separator {
+  width: 30%;
+  border-color: var(--clr-light);
+  opacity: 0.5;
+}
+
+/* the whole service section gets bottom margin BUT the margins disappearin for larger screens because we did margin: 0 auto;
+in media query but we fix that by going to media query for service section bellow and change it from margin: 0 auto; to 
+margin-left: auto; and margin-right: auto; just so it doesn't overwrite that margin-bottom: 4em; along the way */
+.services {
+  margin-bottom: 4em;
+}
+
+/* will stop things (in this case text) to move(stretch) too much - keeping a decent shape when it is too wide */
+.service {
+  max-width: 500px;
+  /* keep it centered  */
+  margin: 0 auto;
+}
+
+.service p {
+  margin-block: 1rem;
+}
+
+/* Footer */
+
+.footer {
+  padding: 2.5em 0;
+  color: var(--clr-accent);
+}
+
+.footer-logo {
+  width: 150px;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.3em;
+
+  text-align: center;
+}
+
+.footer-info h3 {
+  margin-bottom: 0.6em;
+}
+
+/* for links usually use 'inherit' so all the links in footer */
+.footer a {
+  color: inherit;
+}
+
+.footer-copyright {
+  padding-block: 1rem;
+}
+
+.footer-copyright p {
+  text-align: center;
+  font-size: 12px;
+}
+
+@media (min-width: 600px) {
+  .footer-info {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1em;
+    text-align: left;
+  }
+}
+
+/* if we want to brake into multiple columns for bigger screens we use media queries
+AND 800px seem to work better as a breakpoint for when this would switch over than 900px */
+@media (min-width: 800px) {
+  .section__title {
+    margin-bottom: 0;
+  }
+  .menu__list {
+    display: flex;
+    align-items: center;
+    line-height: 1;
+  }
+  .nav-toggle {
+    display: none;
+  }
+
+  .hero__title {
+    text-align: left;
+  }
+  .hero-wrapper {
+    flex-wrap: nowrap;
+  }
+  .hero__title {
+    width: 50%;
+    margin-right: 1rem;
+  }
+  .hero__info {
+    width: 50%;
+    margin-left: 1rem;
+  }
+
+  .offer-info-wrapper {
+    flex-wrap: nowrap;
+  }
+  .text-side {
+    width: 50%;
+    margin-right: 1rem;
+  }
+  .text-side .section__title {
+    margin-bottom: 0rem;
+    text-align: left;
+  }
+  .offer-info .element-divider-separator {
+    /* width: 30%; */
+    margin: 0;
+  }
+  .text-side-text {
+    text-align: left;
+  }
+  .text-side a {
+    display: flex;
+    justify-content: center;
+    color: var(--fclr-light);
+  }
+  .image-side {
+    width: 50%;
+    margin-left: 3rem;
+    margin-top: 0rem;
+  }
+  .main-image img {
+    /* max-height: 570px; */
+    height: 780px;
+  }
+
+  .services {
+    display: flex;
+    /* will stop things to move(stretch) too much - keeping a decent shape when it is too wide */
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* will give a space between service blocks (Design + Development, E-Commerce, WorldPress) */
+  /* sibling + sibling of the first block (Design + Development) which is ignored by margin-left */
+  .service + .service {
+    margin-left: 2em;
+  }
+}
