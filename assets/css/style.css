@@ -51,7 +51,8 @@
     --fs-h1: 4.5rem;
     --fs-h2: 3.75rem;
     --fs-h3: 1.5rem;
-    --fs-body: 1.125rem;
+    /* --fs-body: 1.125rem; */
+    --fs-body: clamp(0.8rem, 0.15rem + 1.3vw, 1.125rem);
     /* switching colors on desktop */
     /* --clr-light: #333;
     --clr-dark: #fff;
@@ -66,7 +67,7 @@ body {
   font-family: var(--ff-primary);
   font-size: var(--fs-body);
   line-height: 1.6;
-  letter-spacing: .05em
+  letter-spacing: 0.05em;
 }
 
 .container {
@@ -89,10 +90,10 @@ section {
 /* Everything when it has a FOCUS state (hitting a TAB) is going to get an outline on it */
 /* will be applied to our button but it's also gonna apply to other things like links 
 so you can see on which element is the FOCUS state (the TAB is on) */
-:focus {
+/* :focus {
   outline: 3px solid var(--clr-accent);
-  outline-offset: 3px;
-}
+  outline-offset: 1px;
+} */
 
 /* Buttons */
 /* Usually for buttons usually have designs that have more than one button
@@ -117,7 +118,7 @@ but in this case we have only one button to style up */
 
 /* gets a button bigger when you hover over with transition property in btn above */
 .btn:hover {
-  transform: scale(1.1);
+  transform: scale(1.04);
 }
 
 /* Basic Typography */
@@ -274,10 +275,11 @@ nav {
 }
 
 .nav__list .nav__item:last-child {
-  margin-top: 1rem;
+  margin-top: .5rem;
 }
 
 .nav__list .nav__item:last-child .nav__link {
+  display: block;
   color: var(--clr-primary);
   font-weight: 600;
 
@@ -429,7 +431,7 @@ with .nav-open .hamburger::before {...} and .nav-open .hamburger::after {...} an
   margin-right: 0rem;
 }
 
-.text-side .section__title {
+.text-side .section__title--offer-info {
   color: var(--clr-accent);
   margin-bottom: 0rem;
   text-align: center;
@@ -455,13 +457,13 @@ with .nav-open .hamburger::before {...} and .nav-open .hamburger::after {...} an
 
 .text-side a {
   width: auto;
-  margin-block: 1rem;
+  margin-bottom: 1rem;
 }
 
 .image-side {
   width: 100%;
   margin-top: 1rem;
-  margin-left: 4rem;
+  margin-left: clamp(1.5rem, -0.575rem + 8.75vw, 5rem);
 }
 
 .image-side__img-wrapper {
@@ -510,14 +512,7 @@ with .nav-open .hamburger::before {...} and .nav-open .hamburger::after {...} an
   position: relative;
 }
 
-.section__title--services {
-  /* color: var(--clr-accent); */
-  /* position: relative; is because we have pseudo element we want to put on it 
-    to create a white line under "What I Do" title */
-  position: relative;
-}
-
-.my-services .section__title {
+.my-services .section__title--services {
   margin-bottom: 0rem;
 }
 
@@ -547,6 +542,98 @@ margin-left: auto; and margin-right: auto; just so it doesn't overwrite that mar
 
 .service p {
   margin-block: 1rem;
+}
+
+/* MY PROJECTS SECTION */
+
+.my-projects {
+  text-align: center;
+}
+
+.my-projects .section__title--projects {
+  color: var(--clr-accent);
+  margin-bottom: 0rem;
+}
+
+.my-projects .element-divider {
+  padding-block: 2em;
+}
+
+.my-projects .element-divider-separator {
+  width: 30%;
+  border-color: var(--clr-dark);
+  opacity: 0.5;
+}
+
+/* Carousel (SwiperJS) STYLES */
+
+.swiper {
+  margin-top: 1rem;
+  padding-bottom: 1.8rem;
+}
+
+.slider-wrapper {
+  overflow: hidden;
+  margin-inline: 30px;
+}
+
+.card-list .card-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: black;
+  user-select: none;
+}
+
+.card-list .card-item .project-image {
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.card-list .card-item .project-name {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: black;
+  font-weight: 300;
+}
+
+.slider-wrapper .swiper-pagination-bullet {
+  background: rgb(17, 93, 159);
+  height: 10px;
+  width: 10px;
+}
+
+.slider-wrapper .swiper-slide-button {
+  color: rgb(184, 184, 184);
+  margin-top: -50px;
+  transition: 0.2s ease;
+}
+
+.slider-wrapper .swiper-slide-button:hover {
+  color: rgb(17, 93, 159);
+}
+
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+  right: 0px;
+}
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+  left: 0px;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .slider-wrapper .swiper-slide-button {
+    display: none;
+  }
 }
 
 /* Footer */
@@ -600,9 +687,6 @@ margin-left: auto; and margin-right: auto; just so it doesn't overwrite that mar
 /* if we want to brake into multiple columns for bigger screens we use media queries
 AND 800px seem to work better as a breakpoint for when this would switch over than 900px */
 @media (min-width: 800px) {
-  .section__title {
-    margin-bottom: 0;
-  }
   .menu__list {
     display: flex;
     align-items: center;
@@ -634,8 +718,10 @@ AND 800px seem to work better as a breakpoint for when this would switch over th
     width: 50%;
     margin-right: 1rem;
   }
-  .text-side .section__title {
+  .text-side a {
     margin-bottom: 0rem;
+  }
+  .text-side .section__title--offer-info {
     text-align: left;
   }
   .offer-info .element-divider-separator {
@@ -652,12 +738,12 @@ AND 800px seem to work better as a breakpoint for when this would switch over th
   }
   .image-side {
     width: 50%;
-    margin-left: 3rem;
+    margin-left: clamp(2rem, 0rem + 4vw, 3rem);
     margin-top: 0rem;
   }
   .main-image img {
     /* max-height: 570px; */
-    height: 780px;
+    height: 790px;
   }
 
   .services {
@@ -672,4 +758,6 @@ AND 800px seem to work better as a breakpoint for when this would switch over th
   .service + .service {
     margin-left: 2em;
   }
+
+
 }

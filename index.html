@@ -7,6 +7,12 @@
 
     <title>SATELIT PL19</title>
 
+    <!-- Linking SwiperJS CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <!-- Normalizes helps even out all the differences between different web-browsers 
@@ -20,7 +26,12 @@
       crossorigin="anonymous"
     />
 
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/img/favicon.png"
+    />
 
     <!-- Update these with your own fonts -->
     <!-- <link rel="stylesheet"
@@ -57,7 +68,7 @@
             <a href="#services" class="menu__link">Usługi</a>
           </li>
           <li class="menu__item">
-            <a href="#work" class="menu__link">Realizacje</a>
+            <a href="#projects" class="menu__link">Realizacje</a>
           </li>
           <li class="menu__item">
             <a href="#contact" class="menu__link">Kontakt</a>
@@ -80,7 +91,7 @@
               <a href="#services" class="nav__link">Usługi</a>
             </li>
             <li class="nav__item">
-              <a href="#work" class="nav__link">Realizacje</a>
+              <a href="#projects" class="nav__link">Realizacje</a>
             </li>
             <li class="nav__item">
               <a href="#contact" class="nav__link">Kontakt</a>
@@ -118,7 +129,7 @@
     <section class="offer-info">
       <div class="offer-info-wrapper container">
         <div class="text-side">
-          <h2 class="section__title section__title--services">Co oferujemy?</h2>
+          <h2 class="section__title section__title--offer-info">Co oferujemy?</h2>
           <div class="element-divider">
             <span class="element-divider-separator"> </span>
           </div>
@@ -191,6 +202,107 @@
       </div>
     </section>
 
+    <!-- PROJECTS -->
+
+    <section class="my-projects" id="projects">
+      <div class="my-projects-wrapper container">
+        <h2 class="section__title section__title--projects">Nasze projekty</h2>
+        <div class="element-divider">
+          <span class="element-divider-separator"> </span>
+        </div>
+  
+        <div class="swiper">
+          <div class="slider-wrapper">
+            <div class="card-list swiper-wrapper">
+              <div class="card-item swiper-slide">
+                <img
+                  class="project-image"
+                  src="./assets/img/projects/image1.jpg"
+                  alt="project 1"
+                />
+                <p class="project-name">Project 1</p>
+              </div>
+              <div class="card-item swiper-slide">
+                <img
+                  class="project-image"
+                  src="./assets/img/projects/image2.jpg"
+                  alt="project 2"
+                />
+                <p class="project-name">Project 2</p>
+              </div>
+              <div class="card-item swiper-slide">
+                <img
+                  class="project-image"
+                  src="./assets/img/projects/image3.jpg"
+                  alt="project 3"
+                />
+                <p class="project-name">Project 3</p>
+              </div>
+              <div class="card-item swiper-slide">
+                <img
+                  class="project-image"
+                  src="./assets/img/projects/image4.jpg"
+                  alt="project 4"
+                />
+                <p class="project-name">Project 4</p>
+              </div>
+              <div class="card-item swiper-slide">
+                <img
+                  class="project-image"
+                  src="./assets/img/projects/image5.jpg"
+                  alt="project 5"
+                />
+                <p class="project-name">Project 5</p>
+              </div>
+              <div class="card-item swiper-slide">
+                <img
+                  class="project-image"
+                  src="./assets/img/projects/image6.jpg"
+                  alt="project 6"
+                />
+                <p class="project-name">Project 6</p>
+              </div>
+              <div class="card-item swiper-slide">
+                <img
+                  class="project-image"
+                  src="./assets/img/projects/image7.jpg"
+                  alt="project 7"
+                />
+                <p class="project-name">Project 7</p>
+              </div>
+              <div class="card-item swiper-slide">
+                <img
+                  class="project-image"
+                  src="./assets/img/projects/image8.jpg"
+                  alt="project 9"
+                />
+                <p class="project-name">Project 8</p>
+              </div>
+              <div class="card-item swiper-slide">
+                <img
+                  class="project-image"
+                  src="./assets/img/projects/image9.jpg"
+                  alt="project 19"
+                />
+                <p class="project-name">Project 9</p>
+              </div>
+              <div class="card-item swiper-slide">
+                <img
+                  class="project-image"
+                  src="./assets/img/projects/image10.jpg"
+                  alt="project 10"
+                />
+                <p class="project-name">Project 10</p>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-slide-button swiper-button-prev"></div>
+            <div class="swiper-slide-button swiper-button-next"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer" id="contact">
       <div class="footer-info container">
@@ -223,6 +335,9 @@
         <p>Copyright © 2024 SATELIT PL19</p>
       </div>
     </footer>
+
+    <!-- Linking SwiperJS script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <!-- adding a link to JS -->
     <script src="./assets/js/main.js"></script>
