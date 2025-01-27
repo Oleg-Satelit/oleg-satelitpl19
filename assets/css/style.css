@@ -275,7 +275,7 @@ nav {
 }
 
 .nav__list .nav__item:last-child {
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 }
 
 .nav__list .nav__item:last-child .nav__link {
@@ -644,7 +644,7 @@ margin-left: auto; and margin-right: auto; just so it doesn't overwrite that mar
 }
 
 .footer-logo {
-  width: 150px;
+  width: 160px;
 }
 
 .footer-info {
@@ -660,13 +660,17 @@ margin-left: auto; and margin-right: auto; just so it doesn't overwrite that mar
   margin-bottom: 0.6em;
 }
 
+.footer-info .company-info p:nth-child(3) {
+  margin-bottom: 0.5rem;
+}
+
 /* for links usually use 'inherit' so all the links in footer */
 .footer a {
   color: inherit;
 }
 
 .footer-copyright {
-  padding-block: 1rem;
+  padding-block: 1rem 0;
 }
 
 .footer-copyright p {
@@ -758,6 +762,4 @@ AND 800px seem to work better as a breakpoint for when this would switch over th
   .service + .service {
     margin-left: 2em;
   }
-
-
 }
