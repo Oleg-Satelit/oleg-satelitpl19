@@ -178,6 +178,12 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  max-width: 1200px;
+  margin: 0 auto;
+
+  padding-block: 1.5rem;
+  padding-inline: 2rem;
 }
 
 .logo {
@@ -644,7 +650,7 @@ margin-left: auto; and margin-right: auto; just so it doesn't overwrite that mar
 }
 
 .footer-logo {
-  width: 160px;
+  width: 180px;
 }
 
 .footer-info {
@@ -691,6 +697,9 @@ margin-left: auto; and margin-right: auto; just so it doesn't overwrite that mar
 /* if we want to brake into multiple columns for bigger screens we use media queries
 AND 800px seem to work better as a breakpoint for when this would switch over than 900px */
 @media (min-width: 800px) {
+  .logo {
+    max-width: 240px;
+  }
   .menu__list {
     display: flex;
     align-items: center;
